@@ -1,0 +1,167 @@
+<!DOCTYPE html> <html><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Leah Jarvis Character Quiz</title>
+  <link href="style.css" rel="stylesheet" type="text/css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="script.js"></script>
+<style>html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  text-align: center;
+  background-color: black;
+  background-image: url("https://cdn.wallpapersafari.com/89/95/aXy5fx.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+}
+
+button {
+  margin-top: 20px;
+}
+
+img {
+  border: 4px solid white;
+  width: 500px;
+}
+
+.result_hobie {
+  display: none;
+}
+
+.result_miles {
+  display: none;
+}
+
+.result_gwen {
+  display: none;
+}
+
+.result_pav {
+  display: none;
+}
+
+#replitBadge {
+  width: 200px;
+}
+
+.reset {
+    display: none;
+    margin-bottom: 20px;
+}
+
+#miles {
+    width: 400px;
+}</style></head>
+
+<body>
+
+  <!--
+  This script places a badge on your repl's full-browser view back to your repl's cover
+  page. Try various colors for the theme: dark, light, red, orange, yellow, lime, green,
+  teal, blue, blurple, magenta, pink!
+  -->
+  
+  <script src="https://replit.com/public/js/replit-badge-v2.js" theme="dark" position="bottom-right"></script>
+
+  <div class="quiz">
+
+<h1>Which member of the Spider Gang are you?</h1>
+  <br>
+<img src="https://cdn.donmai.us/original/24/62/24626bfa10814c82e411d35fac242597.jpg">
+<br>
+  <p>On a scale of 1-10, how energetic are you?</p>
+  <input placeholder="Enter a number here" class="input-energy">
+  <br>
+  <p>Do you prefer to be by yourself or with friends?</p>
+  <input placeholder="Type 'By yourself' or 'With friends'" class="input-social">
+  <br>
+  <button class="submit">Submit</button>
+
+  </div>
+
+  <div class="result_hobie">
+    <br>
+    <br>
+    <img src="https://pbs.twimg.com/media/FyFYYlbWwAE3ych.jpg">
+    <h1>You are Hobie Brown!</h1>
+    <p>You are super laid-back and effortlessly cool. Everyone sees you as brooding and mysterious, but you’re really just a chill person.
+</p>
+  </div>
+
+  <div class="result_miles">
+    <br>
+    <br>
+    <img src="https://i.pinimg.com/564x/22/7e/6a/227e6a4e95351bffe7c058dbee5b176d.jpg" id="miles">
+    <h1>You are Miles Morales!</h1>
+    <p>You’re young at heart, care deeply about your family and friends, and best of all- you’re the main character. B)</p>
+  </div>
+
+  <div class="result_gwen">
+    <br>
+    <br>
+    <img src="https://ca-times.brightspotcdn.com/dims4/default/8e8801e/2147483647/strip/true/crop/2640x1760+959+0/resize/2400x1600!/quality/75/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2Fcb%2Fb0%2F7007d68042bcb773e30a57cf7350%2Fet-spiderman-across-the-spiderverse-2023-004.JPG">
+    <h1>You are Gwen Stacy!</h1>
+    <p>You are carefree and artsy on the outside but you also have a lot of depth to you. You just want to do what’s right, but it doesn’t always seem to work out.</p>
+  </div>
+
+  <div class="result_pav">
+    <br>
+    <br>
+    <img src="https://beforesandafters.com/wp-content/uploads/2023/10/Spider-Man-India-Pavitr-Prabhakar-Spider-Man-Across-the-Spider-Verse.webp">
+    <h1>You are Pavitr Prabakar!</h1>
+    <p>You are super energetic, thoughtful, and bubbly! Your friends would likely describe you as a ray of sunshine in their lives.</p>
+    </div>
+    
+    <p class="count"></p>
+    
+    <button class="reset">Reset</button>
+
+
+
+<script>
+/*__POPCODESTART__*/
+var plays = 1;
+$(".submit").click(function () {
+  $(".quiz").hide();
+  var energy = $(".input-energy").val();
+  var social = $(".input-social").val();
+
+  if (energy <= 5 && social === "By yourself") {
+    $(".result").text("You are Hobie Brown!");
+    $(".result_hobie").show();
+  }
+
+  if (energy <= 5 && social === "With friends") {
+    $(".result").text("You are Miles Morales!");
+    $(".result_miles").show();
+  }
+
+  if (energy >= 6 && social === "By yourself") {
+    $(".result").text("You are Gwen Stacy!");
+    $(".result_gwen").show();
+  }
+
+  if (energy >= 6 && social === "With friends") {
+    $(".result").text("You are Pavitr Prabakar!");
+    $(".result_pav").show();
+  }
+
+  $(".count").text("You have taken this quiz " + plays + " times");
+  $(".count").show();
+  $(".reset").show();
+});
+$(".reset").click(function () {
+  $(".count").hide();
+  $(".reset").hide();
+  $(".result_hobie").hide();
+  $(".result_miles").hide();
+  $(".result_gwen").hide();
+  $(".result_pav").hide();
+  $(".quiz").show();
+  plays++;
+});
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInBvcGNvZGVQcmV2aWV3LmpzIl0sIm5hbWVzIjpbInBsYXlzIiwiJCIsImNsaWNrIiwiaGlkZSIsImVuZXJneSIsInZhbCIsInNvY2lhbCIsInRleHQiLCJzaG93Il0sIm1hcHBpbmdzIjoiQUFBQSxJQUFJQSxLQUFLLEdBQUcsQ0FBWjtBQUVBQyxDQUFDLENBQUMsU0FBRCxDQUFELENBQWFDLEtBQWIsQ0FBbUIsWUFBVztBQUU1QkQsRUFBQUEsQ0FBQyxDQUFDLE9BQUQsQ0FBRCxDQUFXRSxJQUFYO0FBRUEsTUFBSUMsTUFBTSxHQUFHSCxDQUFDLENBQUMsZUFBRCxDQUFELENBQW1CSSxHQUFuQixFQUFiO0FBQ0EsTUFBSUMsTUFBTSxHQUFHTCxDQUFDLENBQUMsZUFBRCxDQUFELENBQW1CSSxHQUFuQixFQUFiOztBQUVBLE1BQUlELE1BQU0sSUFBSSxDQUFWLElBQWVFLE1BQU0sS0FBSyxhQUE5QixFQUE2QztBQUMzQ0wsSUFBQUEsQ0FBQyxDQUFDLFNBQUQsQ0FBRCxDQUFhTSxJQUFiLENBQWtCLHNCQUFsQjtBQUNBTixJQUFBQSxDQUFDLENBQUMsZUFBRCxDQUFELENBQW1CTyxJQUFuQjtBQUNEOztBQUVELE1BQUlKLE1BQU0sSUFBSSxDQUFWLElBQWVFLE1BQU0sS0FBSyxjQUE5QixFQUE4QztBQUM1Q0wsSUFBQUEsQ0FBQyxDQUFDLFNBQUQsQ0FBRCxDQUFhTSxJQUFiLENBQWtCLHdCQUFsQjtBQUNBTixJQUFBQSxDQUFDLENBQUMsZUFBRCxDQUFELENBQW1CTyxJQUFuQjtBQUNEOztBQUVELE1BQUlKLE1BQU0sSUFBSSxDQUFWLElBQWVFLE1BQU0sS0FBSyxhQUE5QixFQUE2QztBQUMzQ0wsSUFBQUEsQ0FBQyxDQUFDLFNBQUQsQ0FBRCxDQUFhTSxJQUFiLENBQWtCLHFCQUFsQjtBQUNBTixJQUFBQSxDQUFDLENBQUMsY0FBRCxDQUFELENBQWtCTyxJQUFsQjtBQUNEOztBQUVELE1BQUlKLE1BQU0sSUFBSSxDQUFWLElBQWVFLE1BQU0sS0FBSyxjQUE5QixFQUE4QztBQUM1Q0wsSUFBQUEsQ0FBQyxDQUFDLFNBQUQsQ0FBRCxDQUFhTSxJQUFiLENBQWtCLDBCQUFsQjtBQUNBTixJQUFBQSxDQUFDLENBQUMsYUFBRCxDQUFELENBQWlCTyxJQUFqQjtBQUNEOztBQUdDUCxFQUFBQSxDQUFDLENBQUMsUUFBRCxDQUFELENBQVlNLElBQVosQ0FBaUIsOEJBQThCUCxLQUE5QixHQUFzQyxRQUF2RDtBQUNBQyxFQUFBQSxDQUFDLENBQUMsUUFBRCxDQUFELENBQVlPLElBQVo7QUFFQVAsRUFBQUEsQ0FBQyxDQUFDLFFBQUQsQ0FBRCxDQUFZTyxJQUFaO0FBRUgsQ0FqQ0Q7QUFtQ0FQLENBQUMsQ0FBQyxRQUFELENBQUQsQ0FBWUMsS0FBWixDQUFrQixZQUFXO0FBQ3pCRCxFQUFBQSxDQUFDLENBQUMsUUFBRCxDQUFELENBQVlFLElBQVo7QUFDQUYsRUFBQUEsQ0FBQyxDQUFDLFFBQUQsQ0FBRCxDQUFZRSxJQUFaO0FBQ0FGLEVBQUFBLENBQUMsQ0FBQyxlQUFELENBQUQsQ0FBbUJFLElBQW5CO0FBQ0FGLEVBQUFBLENBQUMsQ0FBQyxlQUFELENBQUQsQ0FBbUJFLElBQW5CO0FBQ0FGLEVBQUFBLENBQUMsQ0FBQyxjQUFELENBQUQsQ0FBa0JFLElBQWxCO0FBQ0FGLEVBQUFBLENBQUMsQ0FBQyxhQUFELENBQUQsQ0FBaUJFLElBQWpCO0FBQ0FGLEVBQUFBLENBQUMsQ0FBQyxPQUFELENBQUQsQ0FBV08sSUFBWDtBQUNBUixFQUFBQSxLQUFLO0FBQ1IsQ0FURCIsInNvdXJjZXNDb250ZW50IjpbImxldCBwbGF5cyA9IDE7XG5cbiQoXCIuc3VibWl0XCIpLmNsaWNrKGZ1bmN0aW9uKCkge1xuXG4gICQoXCIucXVpelwiKS5oaWRlKCk7XG4gIFxuICBsZXQgZW5lcmd5ID0gJChcIi5pbnB1dC1lbmVyZ3lcIikudmFsKCk7XG4gIGxldCBzb2NpYWwgPSAkKFwiLmlucHV0LXNvY2lhbFwiKS52YWwoKTtcblxuICBpZiAoZW5lcmd5IDw9IDUgJiYgc29jaWFsID09PSBcIkJ5IHlvdXJzZWxmXCIpIHtcbiAgICAkKFwiLnJlc3VsdFwiKS50ZXh0KFwiWW91IGFyZSBIb2JpZSBCcm93biFcIik7XG4gICAgJChcIi5yZXN1bHRfaG9iaWVcIikuc2hvdygpO1xuICB9XG5cbiAgaWYgKGVuZXJneSA8PSA1ICYmIHNvY2lhbCA9PT0gXCJXaXRoIGZyaWVuZHNcIikge1xuICAgICQoXCIucmVzdWx0XCIpLnRleHQoXCJZb3UgYXJlIE1pbGVzIE1vcmFsZXMhXCIpO1xuICAgICQoXCIucmVzdWx0X21pbGVzXCIpLnNob3coKTtcbiAgfVxuXG4gIGlmIChlbmVyZ3kgPj0gNiAmJiBzb2NpYWwgPT09IFwiQnkgeW91cnNlbGZcIikge1xuICAgICQoXCIucmVzdWx0XCIpLnRleHQoXCJZb3UgYXJlIEd3ZW4gU3RhY3khXCIpO1xuICAgICQoXCIucmVzdWx0X2d3ZW5cIikuc2hvdygpO1xuICB9XG5cbiAgaWYgKGVuZXJneSA+PSA2ICYmIHNvY2lhbCA9PT0gXCJXaXRoIGZyaWVuZHNcIikge1xuICAgICQoXCIucmVzdWx0XCIpLnRleHQoXCJZb3UgYXJlIFBhdml0ciBQcmFiYWthciFcIik7XG4gICAgJChcIi5yZXN1bHRfcGF2XCIpLnNob3coKTtcbiAgfVxuICAgIFxuICAgIFxuICAgICQoXCIuY291bnRcIikudGV4dChcIllvdSBoYXZlIHRha2VuIHRoaXMgcXVpeiBcIiArIHBsYXlzICsgXCIgdGltZXNcIik7XG4gICAgJChcIi5jb3VudFwiKS5zaG93KCk7XG4gICAgXG4gICAgJChcIi5yZXNldFwiKS5zaG93KCk7XG5cbn0pO1xuXG4kKFwiLnJlc2V0XCIpLmNsaWNrKGZ1bmN0aW9uKCkge1xuICAgICQoXCIuY291bnRcIikuaGlkZSgpO1xuICAgICQoXCIucmVzZXRcIikuaGlkZSgpO1xuICAgICQoXCIucmVzdWx0X2hvYmllXCIpLmhpZGUoKTtcbiAgICAkKFwiLnJlc3VsdF9taWxlc1wiKS5oaWRlKCk7XG4gICAgJChcIi5yZXN1bHRfZ3dlblwiKS5oaWRlKCk7XG4gICAgJChcIi5yZXN1bHRfcGF2XCIpLmhpZGUoKTtcbiAgICAkKFwiLnF1aXpcIikuc2hvdygpO1xuICAgIHBsYXlzKys7XG59KTsiXX0=</script></body></html>
